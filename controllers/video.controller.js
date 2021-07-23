@@ -60,6 +60,5 @@ export {
     getVideo,
     createVideo,
     updateVideo,
-    updateVideo,
     deleteVideo
 }

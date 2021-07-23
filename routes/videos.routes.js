@@ -1,12 +1,12 @@
 import Router from 'express'
-import VideosController from '../controllers/video.controller'
+import VideoController from '../controllers/video.controller.js'
 
 const router = Router()
 
-router.get('/', VideosController.getVideos)
+router.get('/', VideoController.getVideos)
 router.get('/:id', Videos.Controller.getVideo)
-router.post('/', VideosController.createVideo)
-router.put('/', VideosController.updateVideo)
-router.delete('/:id', VideosController.deleteVideo)
+router.post('/', VideoController.createVideo)
+router.put('/', VideoController.updateVideo)
+router.delete('/:id', VideoController.deleteVideo)
 
 export default router
