@@ -3,20 +3,20 @@ import VideoRepository from '../repositories/video.repository.js'
 async function getVideos(){
     return await VideoRepository.getVideos()
 }
-async function getVideo(){
-    return await VideoRepository.getVideo()
+async function getVideo(id){
+    return await VideoRepository.getVideo(id)
 }
-async function createVideo(){
-    return await VideoRepository.insertVideo()
+async function createVideo(video){
+    return await VideoRepository.insertVideo(video)
 }
-async function updateVideo(){
-    return await VideoRepository.updateVideo()
+async function updateVideo(video){
+    return await VideoRepository.updateVideo(video)
 }
-async function deleteVideo(){
-    return await VideosRepository.deleteVideo()
+async function deleteVideo(id){
+    return await VideoRepository.deleteVideo(id)
 }
 
-export {
+export default {
     getVideos,
     getVideo,
     createVideo,

@@ -1,12 +1,9 @@
-'use strict';
-const dotenv = require('dotenv');
-
-dotenv.config();
+'use strict'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 const {
     DB_URL
-} = process.env;
+} = process.env
 
-export {
-    DB_URL
-}
+export default DB_URL

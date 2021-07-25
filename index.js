@@ -4,6 +4,7 @@ import router from './routes/videos.routes.js'
 const app = express()
 const port = 3000
 
+app.use(express.json())
 app.use('/videos', router)
 app.listen(port, () => {
     console.log("Server is running.")

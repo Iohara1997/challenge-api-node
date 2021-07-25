@@ -3,7 +3,7 @@ import VideoService from '../services/video.service.js'
 async function getVideos(req, res,  next){
     try {
         const videos = await VideoService.getVideos()
-        res.status(200).send(JSON.parse(videos))
+        res.status(200).send(videos)
     } catch (error) {
         next (error)
     } 
@@ -13,7 +13,7 @@ async function getVideo(req, res, next){
     try {
         const id = req.params.id
         const video = await VideoService.getVideo(id)
-        res.status(200).send(JSON.parse(video))
+        res.status(200).send(video)
     } catch (error) {
         next(error)
     }
@@ -55,7 +55,7 @@ async function deleteVideo(req, res, next){
     }
 }
 
-export {
+export default {
     getVideos,
     getVideo,
     createVideo,
