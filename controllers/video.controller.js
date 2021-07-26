@@ -31,7 +31,6 @@ async function createVideo(req, res, next){
         next(error)
     }
 }
-
 async function updateVideo(req, res, next){
     try {
         const video = req.body
@@ -54,11 +53,24 @@ async function deleteVideo(req, res, next){
         next(error)
     }
 }
+async function createVideoInfo(req, res, next){
+    try {
+        const videoInfo = req.body
+        if (!videoInfo.id) {
+            throw new Error (`Video Id is a required field.`)
+        }
+        await VideoService.createVideoInfo(videoInfo)
+        res.status(200).send(`Successfully created!`)
+    } catch (error) {
+        next(error)
+    }
+}
 
 export default {
     getVideos,
     getVideo,
     createVideo,
     updateVideo,
-    deleteVideo
+    deleteVideo,
+    createVideoInfo
 }

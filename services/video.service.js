@@ -1,4 +1,5 @@
 import VideoRepository from '../repositories/video.repository.js'
+import VideoInfoRepository from '../repositories/videoInfo.repository.js'
 
 async function getVideos(){
     return await VideoRepository.getVideos()
@@ -15,11 +16,15 @@ async function updateVideo(video){
 async function deleteVideo(id){
     return await VideoRepository.deleteVideo(id)
 }
+async function createVideoInfo(info) {
+    return await VideoInfoRepository.insertVideoInfo(info)
+}
 
 export default {
     getVideos,
     getVideo,
     createVideo,
     updateVideo,
-    deleteVideo
+    deleteVideo,
+    createVideoInfo
 }

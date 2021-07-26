@@ -8,5 +8,6 @@ router.get('/:id', VideoController.getVideo)
 router.post('/', VideoController.createVideo)
 router.put('/', VideoController.updateVideo)
 router.delete('/:id', VideoController.deleteVideo)
+router.post('/info', VideoController.createVideoInfo)
 
 export default router

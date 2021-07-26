@@ -1,5 +1,5 @@
 import Sequelize from 'sequelize'
-import connectionString from '../config.js';
+import { connectionString } from '../config.js';
 
 
 const sequelize = new Sequelize(
