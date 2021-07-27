@@ -18,7 +18,7 @@ async function getVideos()  {
 
 async function getVideo(id)  {
     try {
-        return await Video.findByPk(id)
+        return await Video.findByPk(id, { raw: true})
     } catch (error) {
         throw error
     }

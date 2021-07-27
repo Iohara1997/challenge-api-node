@@ -5,7 +5,9 @@ async function getVideos(){
     return await VideoRepository.getVideos()
 }
 async function getVideo(id){
-    return await VideoRepository.getVideo(id)
+    const video = await VideoRepository.getVideo(id)
+    video.info = await VideoInfoRepository.getVideoInfo(parseInt(id))
+    return video
 }
 async function createVideo(video){
     return await VideoRepository.insertVideo(video)
@@ -19,6 +21,9 @@ async function deleteVideo(id){
 async function createVideoInfo(info) {
     return await VideoInfoRepository.insertVideoInfo(info)
 }
+async function updateVideoInfo(info) {
+    return await VideoInfoRepository.updateVideoInfo(info)
+}
 
 export default {
     getVideos,
@@ -26,5 +31,6 @@ export default {
     createVideo,
     updateVideo,
     deleteVideo,
-    createVideoInfo
+    createVideoInfo,
+    updateVideoInfo
 }
