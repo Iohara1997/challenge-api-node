@@ -1,9 +1,9 @@
-import mongodb from 'mongodb'
+import mongoose from 'mongoose'
 import { mongoConnString } from '../config.js'
 
-function getClient() {
+async function connect() {
     const uri = mongoConnString
-    return new mongodb.MongoClient(uri)
+    return await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
 }
 
-export { getClient }
+export { connect }

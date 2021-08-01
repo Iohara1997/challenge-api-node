@@ -8,7 +8,6 @@ async function getVideos(req, res,  next){
         next (error)
     } 
 }
-
 async function getVideo(req, res, next){
     try {
         const id = req.params.id
@@ -18,7 +17,6 @@ async function getVideo(req, res, next){
         next(error)
     }
 }
-
 async function createVideo(req, res, next){
     try {
         const video = req.body
@@ -43,7 +41,6 @@ async function updateVideo(req, res, next){
         next(error)
     }
 }
-
 async function deleteVideo(req, res, next){
     try {
         const id = req.params.id
@@ -77,6 +74,23 @@ async function updateVideoInfo(req, res, next){
         next(error)
     }
 }
+async function getAllVideoInfo(req, res,  next){
+    try {
+        const videos = await VideoService.getAllVideoInfo()
+        res.status(200).send(videos)
+    } catch (error) {
+        next (error)
+    } 
+}
+async function getVideoInfo(req, res,  next){
+    try {
+        const id = req.params.id
+        const video = await VideoService.getVideoInfo(id)
+        res.status(200).send(video)
+    } catch (error) {
+        next (error)
+    } 
+}
 // controller da rota para o server Django 
 async function calculatorSum(req, res, next){
     try {
@@ -86,14 +100,6 @@ async function calculatorSum(req, res, next){
     } catch (error) {
         next(error)
     }
-}
-async function getAllVideoInfo(req, res,  next){
-    try {
-        const videos = await VideoService.getAllVideoInfo()
-        res.status(200).send(videos)
-    } catch (error) {
-        next (error)
-    } 
 }
 
 export default {
@@ -105,5 +111,6 @@ export default {
     createVideoInfo,
     updateVideoInfo,
     getAllVideoInfo,
+    getVideoInfo,
     calculatorSum
 }

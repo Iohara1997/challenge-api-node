@@ -7,7 +7,6 @@ async function insertVideo(video)  {
         throw error
     }
 }
-
 async function getVideos()  {
     try {
         return await Video.findAll()
@@ -15,7 +14,6 @@ async function getVideos()  {
         throw error
     }
 }
-
 async function getVideo(id)  {
     try {
         return await Video.findByPk(id, { raw: true})
@@ -23,7 +21,6 @@ async function getVideo(id)  {
         throw error
     }
 }
-
 async function deleteVideo(id)  {
     try {
             await Video.destroy({
@@ -35,7 +32,6 @@ async function deleteVideo(id)  {
         throw error
     }
 }
-
 async function updateVideo(video)  {
     try {
         await Video.update(video, {

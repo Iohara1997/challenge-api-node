@@ -13,6 +13,9 @@ async function getVideo(id){
 async function getAllVideoInfo(){
     return await VideoInfoRepository.getAllVideoInfo()
 }
+async function getVideoInfo(info){
+    return await VideoInfoRepository.getVideoInfo(info)
+}
 async function createVideo(video){
     return await VideoRepository.insertVideo(video)
 }
@@ -49,5 +52,6 @@ export default {
     deleteVideo,
     createVideoInfo,
     updateVideoInfo,
-    getAllVideoInfo
+    getAllVideoInfo,
+    getVideoInfo
 }

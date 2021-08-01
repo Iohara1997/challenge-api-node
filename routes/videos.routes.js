@@ -3,8 +3,9 @@ import VideoController from '../controllers/video.controller.js'
 
 const router = Router()
 
-router.get('/info', VideoController.getAllVideoInfo)
 router.get('/', VideoController.getVideos)
+router.get('/info', VideoController.getAllVideoInfo)
+router.get('/info/:id', VideoController.getVideoInfo)
 router.get('/:id', VideoController.getVideo)
 router.post('/info', VideoController.createVideoInfo)
 router.post('/', VideoController.createVideo)
