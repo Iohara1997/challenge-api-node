@@ -77,6 +77,24 @@ async function updateVideoInfo(req, res, next){
         next(error)
     }
 }
+// controller da rota para o server Django 
+async function calculatorSum(req, res, next){
+    try {
+        const sum = req.body
+        const result = await VideoService.calculatorSum(sum)
+        res.status(200).send(result)
+    } catch (error) {
+        next(error)
+    }
+}
+async function getAllVideoInfo(req, res,  next){
+    try {
+        const videos = await VideoService.getAllVideoInfo()
+        res.status(200).send(videos)
+    } catch (error) {
+        next (error)
+    } 
+}
 
 export default {
     getVideos,
@@ -85,5 +103,7 @@ export default {
     updateVideo,
     deleteVideo,
     createVideoInfo,
-    updateVideoInfo
+    updateVideoInfo,
+    getAllVideoInfo,
+    calculatorSum
 }

@@ -27,11 +27,35 @@ async function updateVideoInfo(videoInfo) {
     }
 }
 
+async function getAllVideoInfo() {
+    const client = getClient()
+    try {
+        await client.connect()
+        return await client.db('video-platform').collection('videoInfo').find({}).toArray()
+    } catch (error) {
+        throw error
+    } finally {
+        await client.close()
+    }
+}
+
 async function getVideoInfo(id) {
     const client = getClient()
     try {
         await client.connect()
-        return await client.db('video-platform').collection('videoInfo').findOne({id: id})
+        return await client.db('video-platform').collection('videoInfo').findOne({id})
+    } catch (error) {
+        throw error
+    } finally {
+        await client.close()
+    }
+}
+
+async function deleteVideoInfo(id) {
+    const client = getClient()
+    try {
+        await client.connect()
+        return await client.db('video-platform').collection('videoInfo').deleteOne({id})
     } catch (error) {
         throw error
     } finally {
@@ -42,5 +66,7 @@ async function getVideoInfo(id) {
 export default { 
     insertVideoInfo,
     updateVideoInfo,
-    getVideoInfo
+    getAllVideoInfo,
+    getVideoInfo,
+    deleteVideoInfo
 }

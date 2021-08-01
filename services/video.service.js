@@ -1,5 +1,6 @@
 import VideoRepository from '../repositories/video.repository.js'
 import VideoInfoRepository from '../repositories/videoInfo.repository.js'
+import axios from 'axios'
 
 async function getVideos(){
     return await VideoRepository.getVideos()
@@ -9,6 +10,9 @@ async function getVideo(id){
     video.info = await VideoInfoRepository.getVideoInfo(parseInt(id))
     return video
 }
+async function getAllVideoInfo(){
+    return await VideoInfoRepository.getAllVideoInfo()
+}
 async function createVideo(video){
     return await VideoRepository.insertVideo(video)
 }
@@ -16,6 +20,7 @@ async function updateVideo(video){
     return await VideoRepository.updateVideo(video)
 }
 async function deleteVideo(id){
+    await VideoInfoRepository.deleteVideoInfo(parseInt(id))
     return await VideoRepository.deleteVideo(id)
 }
 async function createVideoInfo(info) {
@@ -23,6 +28,17 @@ async function createVideoInfo(info) {
 }
 async function updateVideoInfo(info) {
     return await VideoInfoRepository.updateVideoInfo(info)
+}
+// utilizando axios para enviar uma requisição para o server Django
+async function calculatorSum(sum) {
+    try {
+        return await axios.post('http://localhost:8000/sum', {
+            firstNumber: sum.firstNumber,
+            secondNumber: sum.secondNumber
+        });
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export default {
@@ -32,5 +48,6 @@ export default {
     updateVideo,
     deleteVideo,
     createVideoInfo,
-    updateVideoInfo
+    updateVideoInfo,
+    getAllVideoInfo
 }
