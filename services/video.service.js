@@ -35,11 +35,11 @@ async function updateVideoInfo(info) {
 // utilizando axios para enviar uma requisição para o server Django
 async function calculatorSum(sum) {
     try {
-        return await axios.post('http://localhost:8000/sum', {
+        return await axios.post('http://localhost:8000/sum/numbers/', {
             firstNumber: sum.firstNumber,
             secondNumber: sum.secondNumber
-        });
-    } catch (error) {
+        })
+    }catch (error) {
         console.log(error)
     }
 }
@@ -53,5 +53,6 @@ export default {
     createVideoInfo,
     updateVideoInfo,
     getAllVideoInfo,
-    getVideoInfo
+    getVideoInfo,
+    calculatorSum
 }

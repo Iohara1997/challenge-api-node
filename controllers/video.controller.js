@@ -1,4 +1,5 @@
 import VideoService from '../services/video.service.js'
+import circularJSON from 'circular-json'
 
 async function getVideos(req, res,  next){
     try {
@@ -96,7 +97,7 @@ async function calculatorSum(req, res, next){
     try {
         const sum = req.body
         const result = await VideoService.calculatorSum(sum)
-        res.status(200).send(result)
+        res.status(200).send(result.data)
     } catch (error) {
         next(error)
     }

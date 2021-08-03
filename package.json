@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "circular-json": "^0.5.9",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongodb": "^4.0.1",
@@ -20,7 +23,9 @@
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
-    "eslint": "^7.31.0",
+    "@types/circular-json": "^0.4.0",
+    "eslint": "^7.32.0",
+    "eslint-config-xo": "^0.37.0",
     "nodemon": "^2.0.12"
   }
 }
